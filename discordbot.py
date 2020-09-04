@@ -1,13 +1,13 @@
 import discord
-#from discord.ext import commands
 from discord.ext import tasks
+#from discord.ext import commands
 import os
 import traceback
 
-#bot = commands.Bot(command_prefix='/')
-client = discord.Client()
 token = os.environ['DISCORD_BOT_TOKEN']
 CHANNEL_ID = 751149121876000851
+client = discord.Client()
+#bot = commands.Bot(command_prefix='/')
 
 #@bot.event
 #async def on_command_error(ctx, error):
