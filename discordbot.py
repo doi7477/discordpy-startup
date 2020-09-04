@@ -2,7 +2,6 @@ import discord
 from discord.ext import tasks
 #from discord.ext import commands
 from datetime import datetime
-import pytz
 import os
 import traceback
 
