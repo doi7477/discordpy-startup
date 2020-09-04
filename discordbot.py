@@ -26,18 +26,18 @@ async def loop():
     #現在時刻取得
     JST = timezone(timedelta(hours=+9), 'JST')
     now = datetime.now(JST).strftime('%H:%M')
-    if now == '15:36': 
+    if now == '15:58': 
         channel = client.get_channel(751149121876000851)
         if channel is None:
             pass
         else:
-            await channel.send('正解' + now)
+            await channel.send('@everyone 正解' + now)
     else:
         channel = client.get_channel(751149121876000851)
         if channel is None:
             pass
         else:
-            await channel.send('ちゃいます' + now)
+            await channel.send('@everyone ちゃいます' + now)
 #    client.send_message(client.get_channel('751149121876000851'), 'hello')
 
 #ループ処理実行
