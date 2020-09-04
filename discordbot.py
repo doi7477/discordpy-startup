@@ -1,6 +1,7 @@
 import discord
 from discord.ext import tasks
 #from discord.ext import commands
+from datetime import datetime
 import os
 import traceback
 
@@ -20,13 +21,16 @@ client = discord.Client()
 #async def ping(ctx):
 #    await ctx.send('pong')
 
-@tasks.loop(seconds=3)
+@tasks.loop(seconds=60)
 async def loop():
-    channel = client.get_channel(751149121876000851)
-    if channel is None:
-        pass
-    else:
-        await channel.send('test')
+    #現在時刻取得
+    now = datetime.now(pytz.timezone('Asia/Tokyo').strftime('%H:%M')
+    if now == '15:25':
+        channel = client.get_channel(751149121876000851)
+        if channel is None:
+            pass
+        else:
+            await channel.send('test')
 #    client.send_message(client.get_channel('751149121876000851'), 'hello')
 
 #ループ処理実行
