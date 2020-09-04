@@ -25,7 +25,7 @@ client = discord.Client()
 async def loop():
     #現在時刻取得
     
-    ow = datetime.now().strftime('%H:%M')
+    now = datetime.now().strftime('%H:%M')
     if now == '15:36': 
         channel = client.get_channel(751149121876000851)
         if channel is None:
