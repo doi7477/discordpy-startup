@@ -1,7 +1,7 @@
 import discord
 from discord.ext import tasks
 #from discord.ext import commands
-from datetime import datetime
+from datetime import datetime, timedelta, timezone
 import os
 import traceback
 
@@ -24,8 +24,8 @@ client = discord.Client()
 @tasks.loop(seconds=60)
 async def loop():
     #現在時刻取得
-    
-    now = datetime.now().strftime('%H:%M')
+    JST = timezone(timedelta(hours=+9), 'JST')
+    now = datetime.now(JST).strftime('%H:%M')
     if now == '15:36': 
         channel = client.get_channel(751149121876000851)
         if channel is None:
