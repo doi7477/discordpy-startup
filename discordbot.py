@@ -26,8 +26,8 @@ client = discord.Client()
 async def loop():
     #現在時刻取得
     
-    now = datetime.now(pytz.timezone('Asia/Tokyo')).strftime('%H:%M')
-    if now == '15:30': 
+    now = datetime.datetime.utcnow().strftime('%H:%M') + datetime.timedelta(hours=9)
+    if now == '15:36': 
         channel = client.get_channel(751149121876000851)
         if channel is None:
             pass
