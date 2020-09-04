@@ -24,7 +24,7 @@ CHANNEL_ID = 751149121876000851
 async def loop():
 #    channel = client.get_channel(CHANNEL_ID)
 #    await channel.send('時間だよ')  
-    client.send_message(client.get_channel(CHANNEL_ID), 'hello')
+    client.send_message(client.get_channel('751149121876000851'), 'hello')
 
 #ループ処理実行
 loop.start()
