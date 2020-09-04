@@ -23,7 +23,10 @@ client = discord.Client()
 @tasks.loop(seconds=3)
 async def loop():
     channel = client.get_channel(751149121876000851)
-    await channel.send('test')
+    if channel is None:
+        pass
+    else:
+        await channel.send('test')
 #    client.send_message(client.get_channel('751149121876000851'), 'hello')
 
 #ループ処理実行
