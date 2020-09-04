@@ -5,10 +5,9 @@ import os
 import traceback
 
 #bot = commands.Bot(command_prefix='/')
-CHANNEL_ID = 751149121876000851
 client = discord.Client()
 token = os.environ['DISCORD_BOT_TOKEN']
-
+CHANNEL_ID = 751149121876000851
 
 #@bot.event
 #async def on_command_error(ctx, error):
@@ -24,7 +23,7 @@ token = os.environ['DISCORD_BOT_TOKEN']
 @tasks.loop(seconds=3)
 async def loop():
     channel = client.get_channel(CHANNEL_ID)
-    await channel.send(js['時間だよ'])  
+    await channel.send('時間だよ')  
 
 #ループ処理実行
 loop.start()
