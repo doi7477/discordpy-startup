@@ -22,7 +22,7 @@ client = discord.Client()
 
 @tasks.loop(seconds=3)
 async def loop():
-    channel = client.get_channel(751315766220947496)
+    channel = client.get_channel(751149121876000851)
     await channel.send('時間だよ')
 #    client.send_message(client.get_channel('751149121876000851'), 'hello')
 
