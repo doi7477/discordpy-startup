@@ -1,4 +1,4 @@
-#import discord
+import discord
 #from discord.ext import commands
 from discord.ext import tasks
 import os
@@ -22,7 +22,7 @@ token = os.environ['DISCORD_BOT_TOKEN']
 
 @tasks.loop(seconds=3)
 async def loop():
-    channel = client.get_channel(751149121876000851)
+    channel = client.get_channel('751149121876000851')
     await channel.send('時間だよ')  
 #    client.send_message(client.get_channel('751149121876000851'), 'hello')
 
