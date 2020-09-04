@@ -24,13 +24,20 @@ client = discord.Client()
 @tasks.loop(seconds=60)
 async def loop():
     #現在時刻取得
-    now = datetime.now(pytz.timezone('Asia/Tokyo').strftime('%H:%M')
-    if now == '15:25':
+    
+    now = datetime.now(pytz.timezone('Asia/Tokyo')).strftime('%H:%M')
+    if now == '15:30': 
         channel = client.get_channel(751149121876000851)
         if channel is None:
             pass
         else:
-            await channel.send('test')
+            await channel.send('正解' + now)
+    else:
+        channel = client.get_channel(751149121876000851)
+        if channel is None:
+            pass
+        else:
+            await channel.send('ちゃいます' + now)
 #    client.send_message(client.get_channel('751149121876000851'), 'hello')
 
 #ループ処理実行
