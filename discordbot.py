@@ -28,6 +28,6 @@ async def loop():
 
 #ループ処理実行
 loop.start()
-client.run(TOKEN)
+client.run(token)
 
 #bot.run(token)
