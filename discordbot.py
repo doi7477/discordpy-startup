@@ -24,7 +24,7 @@ token = os.environ['DISCORD_BOT_TOKEN']
 @tasks.loop(seconds=3)
 async def loop():
     channel = client.get_channel(CHANNEL_ID)
-    await channel.send('時間だよ')  
+    await channel.send(js['時間だよ'])  
 
 #ループ処理実行
 loop.start()
