@@ -7,7 +7,7 @@ import traceback
 #bot = commands.Bot(command_prefix='/')
 client = discord.Client()
 token = os.environ['DISCORD_BOT_TOKEN']
-#CHANNEL_ID = 751149121876000851
+CHANNEL_ID = 751149121876000851
 
 #@bot.event
 #async def on_command_error(ctx, error):
@@ -22,8 +22,8 @@ token = os.environ['DISCORD_BOT_TOKEN']
 
 @tasks.loop(seconds=3)
 async def loop():
-    channel = client.get_channel('751149121876000851')
-    await channel.send('時間だよ')  
+    channel = client.get_channel(CHANNEL_ID)
+    await channel.send('時間だよ')
 #    client.send_message(client.get_channel('751149121876000851'), 'hello')
 
 #ループ処理実行
