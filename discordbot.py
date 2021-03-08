@@ -32,7 +32,7 @@ async def loop():
         if channel is None:
             pass
         else:
-            await channel.send('@everyone 要塞だよ！全員集合！！' + now)
+            #await channel.send('@everyone 要塞だよ！全員集合！！')
 
 #ループ処理実行
 loop.start()
