@@ -35,12 +35,12 @@ async def loop():
             await channel.send('@everyone 要塞だよ！全員集合！！')
             #pass
             
-    if now == '13:30': 
-        channel = client.get_channel(CHANNEL_ID)
-        if channel is None:
-            pass
-        else:
-            await channel.send('OK. In your words I will start booting.')
+    #if now == '13:30': 
+        #channel = client.get_channel(CHANNEL_ID)
+        #if channel is None:
+            #pass
+        #else:
+            #await channel.send('OK. In your words I will start booting.')
             #pass
 
 #ループ処理実行
