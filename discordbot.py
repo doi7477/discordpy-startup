@@ -106,7 +106,8 @@ async def on_message(message):
         return
     
     if message.content == '/せとうぽ ぜくの装備消去':
-        await message.channel.send('Zexlia さんの 装備全て を消去しました\r\n:zeku:\r\n:hadaka:')
+        await message.channel.send('Zexlia さんの 装備全て を消去しました')
+        await message.channel.send('<:zeku:717319120642637904>\r\n<:hadaka:823868389285560320>')
         return
     
     if message.content == '/せとうぽ おみくじ':
