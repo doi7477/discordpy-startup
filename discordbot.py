@@ -10,6 +10,7 @@ client = discord.Client()
 
 #せとうぽ-要塞攻略室
 CHANNEL_ID = 713535093469347955
+KANBU_CHANNEL_ID = 605428683364106288
 gfort_notice_flg = 1
 
 #bot = commands.Bot(command_prefix='/')
@@ -45,7 +46,17 @@ async def loop():
             await channel.send('@everyone 要塞だよ！全員集合！！')
             #pass
                 
-# メッセージ受信時に動作する処理
+@client.event
+async def on_ready():                
+    # メッセージ受信時に動作する処理
+    print('せとうぽくん起動しました。')
+    channel = client.get_channel(KANBU_CHANNEL_ID)
+    if channel is None:
+        pass
+    else:          
+        await channel.send('せとうぽくん起動しました。\r\n要塞通知設定リセット：デフォルトはONです')
+        #pass
+    
 @client.event
 async def on_message(message):
     global gfort_notice_flg
