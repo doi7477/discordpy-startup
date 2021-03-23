@@ -54,7 +54,8 @@ async def on_message(message):
         return
     
     # 要塞通知ON設定
-    if message.content == '/setup on':
+    if message.content == '/setupon':
+        await message.channel.send('test1')
         if fort_notice_flg == 1:
             await message.channel.send('すでに要塞通知設定はONです')
         else:
@@ -63,6 +64,7 @@ async def on_message(message):
 
     # 要塞通知OFF設定
     if message.content == '/setup off':
+        await message.channel.send('test2')
         if fort_notice_flg == 0:
             await message.channel.send('すでに要塞通知設定はOFFです')
         else:
@@ -71,7 +73,7 @@ async def on_message(message):
     
     # 「/neko」と発言したら「にゃーん」が返る処理
     if message.content == '/neko':
-        await message.channel.send('にゃーん')
+        await message.channel.send('にゃーん2')
 
 
 #ループ処理実行
