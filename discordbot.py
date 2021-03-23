@@ -54,7 +54,7 @@ async def on_message(message):
         return
     
     # 要塞通知ON設定
-    if message.content == '/せとうぽ 通知オン':
+    if message.content == '/setup on':
         if fort_notice_flg == 1:
             await message.channel.send('すでに要塞通知設定はONです')
         else:
@@ -62,7 +62,7 @@ async def on_message(message):
             await message.channel.send('要塞通知をONに設定しました')
 
     # 要塞通知OFF設定
-    if message.content == '/せとうぽ 通知オフ':
+    if message.content == '/setup off':
         if fort_notice_flg == 0:
             await message.channel.send('すでに要塞通知設定はOFFです')
         else:
