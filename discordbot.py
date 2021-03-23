@@ -14,8 +14,16 @@ client = discord.Client()
 YOUSAI_CHANNEL_ID = 713535093469347955
 #せとうぽ-幹部用
 KANBU_CHANNEL_ID = 605428683364106288
-#要塞通知フラグ
 g_yousai_notice_flg = 1
+
+#全体ヘルプ文
+embed = discord.Embed(title="/せとうぽ",description="ヘルプを呼び出します",color=0x00ff00)
+embed.add_field(name="/せとうぽ おみくじ",value="おみくじを引きます",inline=False)
+embed.add_field(name="/せとうぽ ぜくの装備消去",value="ぜくしーをせくしーにします",inline=False)
+
+#管理部用ヘルプ文
+embed2 = discord.Embed(title="/せとうぽ 要塞通知オン",description="21時の要塞通知をオンにします",color=0x00ff00)
+embed2.add_field(name="/せとうぽ 要塞通知オフ",value="21時の要塞通知をオフにします",inline=False)
 
 #bot = commands.Bot(command_prefix='/')
 
@@ -66,6 +74,7 @@ async def on_ready():
 async def on_message(message):
     # 要塞通知フラグ定義
     global g_yousai_notice_flg
+    global embed
     
     # メッセージ送信者がBotだった場合は無視する
     if message.author.bot:
@@ -75,11 +84,13 @@ async def on_message(message):
     if message.channel.id == KANBU_CHANNEL_ID:
         # 管理部用ヘルプ
         if message.content == '/せとうぽ':
-            await message.channel.send('◆幹部用チャンネル専用\r\n'
-                                       '/せとうぽ 要塞通知オン　：21時の要塞通知をオンにする\r\n'
-                                       '/せとうぽ 要塞通知オフ　：21時の要塞通知をオフにする\r\n'
-                                       '◆全体チャンネル\r\n'
-                                       '/せとうぽ おみくじ　　　：おみくじをします')
+#            await message.channel.send('◆幹部用チャンネル専用\r\n'
+#                                       '/せとうぽ 要塞通知オン　：21時の要塞通知をオンにする\r\n'
+#                                       '/せとうぽ 要塞通知オフ　：21時の要塞通知をオフにする\r\n'
+#                                       '◆全体チャンネル\r\n'
+#                                       '/せとうぽ おみくじ　　　：おみくじをします')
+            await message.channel.send(embed=embed)
+            await message.channel.send(embed=embed2)
             return
         
         # 要塞通知ON設定
