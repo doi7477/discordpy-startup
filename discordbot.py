@@ -75,9 +75,11 @@ async def on_message(message):
     if message.channel.id == KANBU_CHANNEL_ID:
         # 管理部用ヘルプ
         if message.content == '/せとうぽ':
-            await message.channel.send('幹部用チャンネル専用\r\n'
-                                       '/せとうぽ 要塞通知オン ：21時の要塞通知をオンにする\r\n'
-                                       '/せとうぽ 要塞通知オフ ：21時の要塞通知をオフにする')
+            await message.channel.send('◆幹部用チャンネル専用\r\n'
+                                       '/せとうぽ 要塞通知オン　：21時の要塞通知をオンにする\r\n'
+                                       '/せとうぽ 要塞通知オフ　：21時の要塞通知をオフにする\r\n'
+                                       '◆全体チャンネル\r\n'
+                                       '/せとうぽ おみくじ　　　：おみくじをします')
             return
         
         # 要塞通知ON設定
@@ -99,6 +101,9 @@ async def on_message(message):
             return
     
     # 全チャンネルの場合#################################
+    if message.content == '/せとうぽ':
+        await message.channel.send('/せとうぽ おみくじ　　　：おみくじをします')
+        return
     
     if message.content == '/せとうぽ おみくじ':
         rand_result = random.randint(1,100)
@@ -110,9 +115,9 @@ async def on_message(message):
             await message.channel.send('吉 です')
         elif rand_result < 70:
             await message.channel.send('末吉 です')
-        elif rand_result < 88
+        elif rand_result < 88:
             await message.channel.send('凶 です')
-        elif rand_result < 98
+        elif rand_result < 98:
             await message.channel.send('大凶 です')
         else:
             await message.channel.send('え・・・')
@@ -122,6 +127,7 @@ async def on_message(message):
             await message.channel.send('こわいこわいこわいこわい')
             time.sleep(2)
             await message.channel.send('あなたは占えませんでした')
+        return
     
     # 「/neko」と発言したら「にゃーん」が返る処理
     if message.content == '/neko':
