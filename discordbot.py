@@ -3,7 +3,9 @@ from discord.ext import tasks
 #from discord.ext import commands
 from datetime import datetime, timedelta, timezone
 import os
+import random
 import traceback
+import time
 
 token = os.environ['DISCORD_BOT_TOKEN']
 client = discord.Client()
@@ -96,7 +98,30 @@ async def on_message(message):
                 await message.channel.send('要塞通知をオフに設定しました')
             return
     
-    # 幹部用チャンネル以外の場合#################################
+    # 全チャンネルの場合#################################
+    
+    if message.content == '/せとうぽ おみくじ':
+        rand_result = random.randint(1,100)
+        if rand_result < 10:
+            await message.channel.send('大吉 です')
+        elif rand_result < 30:
+            await message.channel.send('中吉 です')
+        elif rand_result < 50:
+            await message.channel.send('吉 です')
+        elif rand_result < 70:
+            await message.channel.send('末吉 です')
+        elif rand_result < 88
+            await message.channel.send('凶 です')
+        elif rand_result < 98
+            await message.channel.send('大凶 です')
+        else:
+            await message.channel.send('え・・・')
+            time.sleep(1)
+            await message.channel.send('まじ？')
+            time.sleep(1)
+            await message.channel.send('こわいこわいこわいこわい')
+            time.sleep(2)
+            await message.channel.send('あなたは占えませんでした')
     
     # 「/neko」と発言したら「にゃーん」が返る処理
     if message.content == '/neko':
