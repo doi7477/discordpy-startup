@@ -26,6 +26,7 @@ gfort_notice_flg = 1
 
 @tasks.loop(seconds=60)
 async def loop():
+    global gfort_notice_flg
     
     # 通知オフなら処理しない
     if gfort_notice_flg == 0:
@@ -47,6 +48,7 @@ async def loop():
 # メッセージ受信時に動作する処理
 @client.event
 async def on_message(message):
+    global gfort_notice_flg
     
     # メッセージ送信者がBotだった場合は無視する
     if message.author.bot:
