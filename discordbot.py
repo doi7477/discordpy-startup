@@ -105,6 +105,10 @@ async def on_message(message):
         await message.channel.send('/せとうぽ おみくじ　　　：おみくじをします')
         return
     
+    if message.content == '/せとうぽ ぜくの装備消去':
+        await message.channel.send('Zexlia さんの ウートガルズルスタッフ を破壊しました')
+        return
+    
     if message.content == '/せとうぽ おみくじ':
         rand_result = random.randint(1,100)
         if rand_result < 10:
