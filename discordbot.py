@@ -17,12 +17,14 @@ KANBU_CHANNEL_ID = 605428683364106288
 g_yousai_notice_flg = 1
 
 #全体ヘルプ文
-embed = discord.Embed(title="/せとうぽ",description="ヘルプを呼び出します",color=0x00ff00)
+embed = discord.Embed(title="コマンドリスト一覧",description="",color=0x00ff00)
+embed.add_field(name="/せとうぽ",value="ヘルプを呼び出します",inline=False)
 embed.add_field(name="/せとうぽ おみくじ",value="おみくじを引きます",inline=False)
 embed.add_field(name="/せとうぽ ぜくの装備消去",value="ぜくしーをせくしーにします",inline=False)
 
 #管理部用ヘルプ文
-embed2 = discord.Embed(title="/せとうぽ 要塞通知オン",description="21時の要塞通知をオンにします",color=0x00ff00)
+embed2 = discord.Embed(title="管理部用コマンドリスト一覧",description="",color=0xff0000)
+embed2.add_field(name="/せとうぽ 要塞通知オン",value="21時の要塞通知をオンにします",inline=False)
 embed2.add_field(name="/せとうぽ 要塞通知オフ",value="21時の要塞通知をオフにします",inline=False)
 
 #bot = commands.Bot(command_prefix='/')
@@ -113,7 +115,7 @@ async def on_message(message):
     
     # 全チャンネルの場合#################################
     if message.content == '/せとうぽ':
-        await message.channel.send('/せとうぽ おみくじ　　　：おみくじをします')
+        await message.channel.send(embed=embed)
         return
     
     if message.content == '/せとうぽ ぜくの装備消去':
@@ -139,11 +141,6 @@ async def on_message(message):
             await message.channel.send('あなたは占えませんでした')
         return
     
-    # 「/neko」と発言したら「にゃーん」が返る処理
-    if message.content == '/neko':
-        await message.channel.send('にゃーん')
-
-
 #ループ処理実行
 loop.start()
 client.run(token)
