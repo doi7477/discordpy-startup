@@ -73,8 +73,9 @@ async def on_message(message):
     if message.channel.id == KANBU_CHANNEL_ID:
         # 管理部用ヘルプ
         if message.content == '/せとうぽ':
-            await message.channel.send('//せとうぽ 要塞通知オン ：21時の要塞通知をオンにする\r\n'
-                                       '//せとうぽ 要塞通知オフ ：21時の要塞通知をオフにする')
+            await message.channel.send('幹部用チャンネル専用\r\n'
+                                       '/せとうぽ 要塞通知オン ：21時の要塞通知をオンにする\r\n'
+                                       '/せとうぽ 要塞通知オフ ：21時の要塞通知をオフにする')
             return
         
         # 要塞通知ON設定
