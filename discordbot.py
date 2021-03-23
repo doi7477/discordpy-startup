@@ -13,6 +13,8 @@ client = discord.Client()
 YOUSAI_CHANNEL_ID = 713535093469347955
 #せとうぽ-幹部用
 KANBU_CHANNEL_ID = 605428683364106288
+#どい動物園-雑談
+DEBUG_CHANNEL_ID = 751149121876000851
 #要塞通知フラグ
 g_yousai_notice_flg = 1
 
@@ -60,8 +62,15 @@ async def on_ready():
     if channel is None:
         pass
     else:          
-#        await channel.send('せとうぽくん起動しました\r\n要塞通知設定リセット：デフォルトはONです')
+        #await channel.send('せとうぽくん起動しました\r\n要塞通知設定リセット：デフォルトはONです')
         pass
+
+    #デバッグ 起動確認
+    channel2 = client.get_channel(DEBUG_CHANNEL_ID)
+    if channel2 is None:
+        pass
+    else:          
+        await channel.send('せとうぽくん起動しました')
     
 ##################### メッセージ受信時の処理 #####################
 @client.event
