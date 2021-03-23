@@ -58,7 +58,7 @@ async def on_message(message):
         if fort_notice_flg == 1:
             await message.channel.send('すでに要塞通知設定はONです')
         else:
-            fort_notice_flg = 1:
+            fort_notice_flg = 1
             await message.channel.send('要塞通知をONに設定しました')
 
     # 要塞通知OFF設定
@@ -66,7 +66,7 @@ async def on_message(message):
         if fort_notice_flg == 0:
             await message.channel.send('すでに要塞通知設定はOFFです')
         else:
-            fort_notice_flg = 0:
+            fort_notice_flg = 0
             await message.channel.send('要塞通知をOFFに設定しました')
     
     # 「/neko」と発言したら「にゃーん」が返る処理
