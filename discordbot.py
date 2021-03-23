@@ -124,12 +124,6 @@ async def on_message(message):
         elif rand_result < 98:
             await message.channel.send('大凶 です')
         else:
-            await message.channel.send('え・・・')
-            time.sleep(1)
-            await message.channel.send('まじ？')
-            time.sleep(1)
-            await message.channel.send('こわいこわいこわいこわい')
-            time.sleep(2)
             await message.channel.send('あなたは占えませんでした')
         return
     
