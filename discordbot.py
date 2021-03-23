@@ -9,9 +9,11 @@ token = os.environ['DISCORD_BOT_TOKEN']
 client = discord.Client()
 
 #せとうぽ-要塞攻略室
-CHANNEL_ID = 713535093469347955
+YOUSAI_CHANNEL_ID = 713535093469347955
+#せとうぽ-幹部用
 KANBU_CHANNEL_ID = 605428683364106288
-gfort_notice_flg = 1
+#要塞通知フラグ
+g_yousai_notice_flg = 1
 
 #bot = commands.Bot(command_prefix='/')
 
@@ -27,10 +29,11 @@ gfort_notice_flg = 1
 
 @tasks.loop(seconds=60)
 async def loop():
-    global gfort_notice_flg
+    # 要塞通知フラグ定義
+    global g_yousai_notice_flg
     
     # 通知オフなら処理しない
-    if gfort_notice_flg == 0:
+    if g_yousai_notice_flg == 0:
         return
         
     #現在時刻取得
@@ -39,7 +42,7 @@ async def loop():
         
     # 21:00に要塞通知を行う
     if now == '21:00': 
-        channel = client.get_channel(CHANNEL_ID)
+        channel = client.get_channel(YOUSAI_CHANNEL_ID)
         if channel is None:
             pass
         else:          
@@ -54,32 +57,45 @@ async def on_ready():
     if channel is None:
         pass
     else:          
-        await channel.send('せとうぽくん起動しました。\r\n要塞通知設定リセット：デフォルトはONです')
+        await channel.send('せとうぽくん起動しました\r\n要塞通知設定リセット：デフォルトはONです')
         #pass
     
 @client.event
 async def on_message(message):
-    global gfort_notice_flg
+    # 要塞通知フラグ定義
+    global g_yousai_notice_flg
     
     # メッセージ送信者がBotだった場合は無視する
     if message.author.bot:
         return
     
-    # 要塞通知ON設定
-    if message.content == '/setup on':
-        if gfort_notice_flg == 1:
-            await message.channel.send('すでに要塞通知設定はONです')
-        else:
-            gfort_notice_flg = 1
-            await message.channel.send('要塞通知をONに設定しました')
+    # 幹部用チャンネルの場合#################################
+    if message.channel.id == KANBU_CHANNEL_ID:
+        # 管理部用ヘルプ
+        if message.content == '/せとうぽ':
+            await message.channel.send('//せとうぽ 要塞通知オン ：21時の要塞通知をオンにする\r\n'
+                                       '//せとうぽ 要塞通知オフ ：21時の要塞通知をオフにする')
+            return
+        
+        # 要塞通知ON設定
+        if message.content == '/せとうぽ 要塞通知オン':
+            if g_yousai_notice_flg == 1:
+                await message.channel.send('すでに要塞通知設定はオンです')
+            else:
+                g_yousai_notice_flg = 1
+                await message.channel.send('要塞通知をオンに設定しました')
+            return
 
-    # 要塞通知OFF設定
-    if message.content == '/setup off':
-        if gfort_notice_flg == 0:
-            await message.channel.send('すでに要塞通知設定はOFFです')
-        else:
-            gfort_notice_flg = 0
-            await message.channel.send('要塞通知をOFFに設定しました')
+        # 要塞通知OFF設定
+        if message.content == '/せとうぽ 要塞通知オフ':
+            if g_yousai_notice_flg == 0:
+                await message.channel.send('すでに要塞通知設定はオフです')
+            else:
+                g_yousai_notice_flg = 0
+                await message.channel.send('要塞通知をオフに設定しました')
+            return
+    
+    # 幹部用チャンネル以外の場合#################################
     
     # 「/neko」と発言したら「にゃーん」が返る処理
     if message.content == '/neko':
