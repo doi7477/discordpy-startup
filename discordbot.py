@@ -5,7 +5,6 @@ from datetime import datetime, timedelta, timezone
 import os
 import random
 import traceback
-import time
 
 token = os.environ['DISCORD_BOT_TOKEN']
 client = discord.Client()
@@ -14,37 +13,28 @@ client = discord.Client()
 YOUSAI_CHANNEL_ID = 713535093469347955
 #せとうぽ-幹部用
 KANBU_CHANNEL_ID = 605428683364106288
+#要塞通知フラグ
 g_yousai_notice_flg = 1
 
 #全体ヘルプ文
-embed = discord.Embed(title="コマンドリスト一覧",description="",color=0x00ff00)
-embed.add_field(name="/せとうぽ",value="ヘルプを呼び出します",inline=False)
-embed.add_field(name="/せとうぽ おみくじ",value="おみくじを引きます",inline=False)
-embed.add_field(name="/せとうぽ ぜくの装備消去",value="ぜくしーをせくしーにします",inline=False)
+embed = discord.Embed(title="**コマンドリスト一覧**",description="",color=0xE88C72)
+embed.add_field(name="/せとうぽ",value="- ヘルプを呼び出します\r\n",inline=False)
+embed.add_field(name="/せとうぽ おみくじ",value="- おみくじを引きます\r\n",inline=False)
+embed.add_field(name="/せとうぽ ぜくの装備消去",value="- ぜくしーをせくしーにします\r\n",inline=False)
 
-#管理部用ヘルプ文
-embed2 = discord.Embed(title="管理部用コマンドリスト一覧",description="",color=0xff0000)
-embed2.add_field(name="/せとうぽ 要塞通知オン",value="21時の要塞通知をオンにします",inline=False)
-embed2.add_field(name="/せとうぽ 要塞通知オフ",value="21時の要塞通知をオフにします",inline=False)
+#幹部用ヘルプ文
+embed2 = discord.Embed(title="**管部用コマンドリスト一覧**",description="",color=0xFFBD72)
+embed2.add_field(name="/せとうぽ 要塞通知オン",value="- 21時の要塞通知をオンにします\r\n",inline=False)
+embed2.add_field(name="/せとうぽ 要塞通知オフ",value="- 21時の要塞通知をオフにします\r\n",inline=False)
 
-#bot = commands.Bot(command_prefix='/')
-
-#@bot.event
-#async def on_command_error(ctx, error):
-#    orig_error = getattr(error, "original", error)
-#    error_msg = ''.join(traceback.TracebackException.from_exception(orig_error).format())
-#    await ctx.send(error_msg)
-
-#@bot.command()
-#async def ping(ctx):
-#    await ctx.send('pong')
-
+##################### 要塞通知処理 #####################
 @tasks.loop(seconds=60)
 async def loop():
-    # 要塞通知フラグ定義
+    
+    # グローバル変数定義
     global g_yousai_notice_flg
     
-    # 通知オフなら処理しない
+    # 要塞通知オフなら処理しない
     if g_yousai_notice_flg == 0:
         return
         
@@ -61,6 +51,7 @@ async def loop():
             await channel.send('@everyone 要塞だよ！全員集合！！')
             #pass
                 
+#####################　起動時の処理 #####################
 @client.event
 async def on_ready():                
     # メッセージ受信時に動作する処理
@@ -69,28 +60,26 @@ async def on_ready():
     if channel is None:
         pass
     else:          
-        await channel.send('せとうぽくん起動しました\r\n要塞通知設定リセット：デフォルトはONです')
-        #pass
+#        await channel.send('せとうぽくん起動しました\r\n要塞通知設定リセット：デフォルトはONです')
+        pass
     
+##################### メッセージ受信時の処理 #####################
 @client.event
 async def on_message(message):
-    # 要塞通知フラグ定義
+    
+    # グローバル変数定義
     global g_yousai_notice_flg
     global embed
+    global embed2
     
     # メッセージ送信者がBotだった場合は無視する
     if message.author.bot:
         return
     
-    # 幹部用チャンネルの場合#################################
+    ##################### 幹部用チャンネル #####################
     if message.channel.id == KANBU_CHANNEL_ID:
         # 管理部用ヘルプ
         if message.content == '/せとうぽ':
-#            await message.channel.send('◆幹部用チャンネル専用\r\n'
-#                                       '/せとうぽ 要塞通知オン　：21時の要塞通知をオンにする\r\n'
-#                                       '/せとうぽ 要塞通知オフ　：21時の要塞通知をオフにする\r\n'
-#                                       '◆全体チャンネル\r\n'
-#                                       '/せとうぽ おみくじ　　　：おみくじをします')
             await message.channel.send(embed=embed)
             await message.channel.send(embed=embed2)
             return
@@ -113,7 +102,7 @@ async def on_message(message):
                 await message.channel.send('要塞通知をオフに設定しました')
             return
     
-    # 全チャンネルの場合#################################
+    ##################### 全チャンネル #####################
     if message.content == '/せとうぽ':
         await message.channel.send(embed=embed)
         return
@@ -144,4 +133,17 @@ async def on_message(message):
 #ループ処理実行
 loop.start()
 client.run(token)
+
+#bot = commands.Bot(command_prefix='/')
+
+#@bot.event
+#async def on_command_error(ctx, error):
+#    orig_error = getattr(error, "original", error)
+#    error_msg = ''.join(traceback.TracebackException.from_exception(orig_error).format())
+#    await ctx.send(error_msg)
+
+#@bot.command()
+#async def ping(ctx):
+#    await ctx.send('pong')
+
 #bot.run(token)
