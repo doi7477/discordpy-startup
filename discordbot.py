@@ -5,13 +5,12 @@ from datetime import datetime, timedelta, timezone
 import os
 import traceback
 
-#せとうぽ-要塞攻略室
-CHANNEL_ID = 713535093469347955
-fort_notice_flg = 1
-
 token = os.environ['DISCORD_BOT_TOKEN']
 client = discord.Client()
 
+#せとうぽ-要塞攻略室
+CHANNEL_ID = 713535093469347955
+gfort_notice_flg = 1
 
 #bot = commands.Bot(command_prefix='/')
 
@@ -29,7 +28,7 @@ client = discord.Client()
 async def loop():
     
     # 通知オフなら処理しない
-    if fort_notice_flg == 0:
+    if gfort_notice_flg == 0:
         return
         
     #現在時刻取得
@@ -54,21 +53,21 @@ async def on_message(message):
         return
     
     # 要塞通知ON設定
-    if message.content == '/setupon':
+    if message.content == '/setup on':
         await message.channel.send('test1')
-        if fort_notice_flg == 1:
+        if gfort_notice_flg == 1:
             await message.channel.send('すでに要塞通知設定はONです')
         else:
-            fort_notice_flg = 1
+            gfort_notice_flg = 1
             await message.channel.send('要塞通知をONに設定しました')
 
     # 要塞通知OFF設定
     if message.content == '/setup off':
         await message.channel.send('test2')
-        if fort_notice_flg == 0:
+        if gfort_notice_flg == 0:
             await message.channel.send('すでに要塞通知設定はOFFです')
         else:
-            fort_notice_flg = 0
+            gfort_notice_flg = 0
             await message.channel.send('要塞通知をOFFに設定しました')
     
     # 「/neko」と発言したら「にゃーん」が返る処理
