@@ -8,6 +8,7 @@ import traceback
 
 token = os.environ['DISCORD_BOT_TOKEN']
 client = discord.Client()
+presence = discord.Game('メイプルストーリーM')
 
 #せとうぽ-要塞攻略室
 YOUSAI_CHANNEL_ID = 713535093469347955
@@ -28,6 +29,8 @@ embed.add_field(name="/せとうぽ ぜくの装備消去",value="  - ぜくし�
 embed2 = discord.Embed(title="**管部用コマンドリスト一覧**",description="",color=0x4169E1)
 embed2.add_field(name="/せとうぽ 要塞通知オン",value="  - 21時の要塞通知をオンにします\r\n",inline=False)
 embed2.add_field(name="/せとうぽ 要塞通知オフ",value="  - 21時の要塞通知をオフにします\r\n",inline=False)
+
+
 
 ##################### 要塞通知処理 #####################
 @tasks.loop(seconds=60)
@@ -58,6 +61,7 @@ async def loop():
 async def on_ready():                
     # メッセージ受信時に動作する処理
     print('せとうぽくん起動しました。')
+    await client.change_presence(activity=presence)
     channel = client.get_channel(KANBU_CHANNEL_ID)
     if channel is None:
         pass
@@ -70,7 +74,7 @@ async def on_ready():
     if channel2 is None:
         pass
     else:          
-        await channel.send('せとうぽくん起動しました')
+        await channel2.send('せとうぽくん起動しました')
     
 ##################### メッセージ受信時の処理 #####################
 @client.event
