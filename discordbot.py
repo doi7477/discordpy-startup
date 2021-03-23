@@ -18,14 +18,17 @@ g_yousai_notice_flg = 1
 
 #全体ヘルプ文
 embed = discord.Embed(title="**コマンドリスト一覧**",description="",color=0xE88C72)
-embed.add_field(name="/せとうぽ",value="- ヘルプを呼び出します\r\n",inline=False)
-embed.add_field(name="/せとうぽ おみくじ",value="- おみくじを引きます\r\n",inline=False)
-embed.add_field(name="/せとうぽ ぜくの装備消去",value="- ぜくしーをせくしーにします\r\n",inline=False)
+embed.add_field(name="/せとうぽ",value=" - ヘルプを呼び出します",inline=False)
+embed.add_field(name="",value="",inline=False)
+embed.add_field(name="/せとうぽ おみくじ",value=" - おみくじを引きます",inline=False)
+embed.add_field(name="",value="",inline=False)
+embed.add_field(name="/せとうぽ ぜくの装備消去",value=" - ぜくしーをせくしーにします",inline=False)
+embed.add_field(name="",value="",inline=False)
 
 #幹部用ヘルプ文
 embed2 = discord.Embed(title="**管部用コマンドリスト一覧**",description="",color=0xFFBD72)
-embed2.add_field(name="/せとうぽ 要塞通知オン",value="- 21時の要塞通知をオンにします\r\n",inline=False)
-embed2.add_field(name="/せとうぽ 要塞通知オフ",value="- 21時の要塞通知をオフにします\r\n",inline=False)
+embed2.add_field(name="/せとうぽ 要塞通知オン",value=" - 21時の要塞通知をオンにします\r\n",inline=False)
+embed2.add_field(name="/せとうぽ 要塞通知オフ",value=" - 21時の要塞通知をオフにします\r\n",inline=False)
 
 ##################### 要塞通知処理 #####################
 @tasks.loop(seconds=60)
