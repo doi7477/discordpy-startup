@@ -102,27 +102,27 @@ async def on_ready():
 
 ##################### 新規参加者の処理 #####################
 @client.event
-async def on_member_join(member):
-         channel3 = client.get_channel(ZATUDAN_CHANNEL_ID)
-         if channel3 is None:
-                  pass
-         else: 
-                  #ようこそ文
-                  strtmp = "以下で自己紹介をお願いします\r\n"\
-                           " <#771510773549629480> \r\n"
-                           "\r\n"\
-                           ":large_blue_diamond: 基本ルール :large_blue_diamond: \r\n"\
-                           "以下リンクをご確認ください\r\n"\
-                           "https://discord.com/channels/578209286639976448/581850951682359296/773011836970205204\r\n"\
-                           "\r\n"\
-                           ":large_blue_diamond: せとうぽくんについて :large_blue_diamond: \r\n"\
-                           "以下コマンドでご確認ください\r\n/せとうぽ\r\n"\
-                           "\r\n"\
-                           "不明点は気軽に連絡ください\r\n"
-                  embed3 = discord.Embed(title="ようこそ せとうぽへ",description="",color=0x4169E1)
-                  embed3.add_field(name=f"{member.author.name}さん!!!\r\nご参加ありがとうございます",value=strtmp,inline=False)
-                  embed3.set_thumbnail(url="https://img.altema.jp/altema/uploads/2019/03/2019y03m07d_1405336875.png")
-                  await channel3.send(embed=embed3)
+#async def on_member_join(member):
+#         channel3 = client.get_channel(ZATUDAN_CHANNEL_ID)
+#         if channel3 is None:
+#                  pass
+#         else: 
+#                  #ようこそ文
+#                  strtmp = "以下で自己紹介をお願いします\r\n"\
+#                           " <#771510773549629480> \r\n"
+#                           "\r\n"\
+#                           ":large_blue_diamond: 基本ルール :large_blue_diamond: \r\n"\
+#                           "以下リンクをご確認ください\r\n"\
+#                           "https://discord.com/channels/578209286639976448/581850951682359296/773011836970205204\r\n"\
+#                           "\r\n"\
+#                           ":large_blue_diamond: せとうぽくんについて :large_blue_diamond: \r\n"\
+#                           "以下コマンドでご確認ください\r\n/せとうぽ\r\n"\
+#                           "\r\n"\
+#                           "不明点は気軽に連絡ください\r\n"
+#                  embed3 = discord.Embed(title="ようこそ せとうぽへ",description="",color=0x4169E1)
+#                  embed3.add_field(name=f"{member.author.name}さん!!!\r\nご参加ありがとうございます",value=strtmp,inline=False)
+#                  embed3.set_thumbnail(url="https://img.altema.jp/altema/uploads/2019/03/2019y03m07d_1405336875.png")
+#                  await channel3.send(embed=embed3)
          
 ##################### メッセージ受信時の処理 #####################
 @client.event
