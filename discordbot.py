@@ -161,7 +161,7 @@ async def on_message(message):
         return
     
     if message.content == '/せとうぽ テスト':
-        await message.channel.send(embed=embed)
+        await message.channel.send(embed=embed3)
         return
     
 #        var1 = config_ini['DEFAULT']['User']
