@@ -8,9 +8,9 @@ import traceback
 #import configparser
 
 token = os.environ['DISCORD_BOT_TOKEN']
-intents = discord.Intents.all()
-client = discord.Client(intents=intents)
-#client = discord.Client()
+#intents = discord.Intents.all()
+#client = discord.Client(intents=intents)
+client = discord.Client()
 presence = discord.Game('モンスターハンターライズ')
 
 #せとうぽ-雑談
@@ -36,21 +36,21 @@ embed2.add_field(name="**/せとうぽ 要塞通知オン**",value="--> 21時の
 embed2.add_field(name="**/せとうぽ 要塞通知オフ**",value="--> 21時の要塞通知をオフにします\r\n",inline=False)
 
 #テストようこそ文
-#strtest = "どい丸"
-#strtmp = "以下で自己紹介をお願いします\r\n"\
-#         " <#771510773549629480> \r\n"\
-#         "\r\n"\
-#         ":large_blue_diamond: 基本ルール :large_blue_diamond: \r\n"\
-#         "以下リンクをご確認ください\r\n"\
-#         "https://discord.com/channels/578209286639976448/581850951682359296/773011836970205204\r\n"\
-#         "\r\n"\
-#         ":large_blue_diamond: せとうぽくんについて :large_blue_diamond: \r\n"\
-#         "以下コマンドでご確認ください\r\n/せとうぽ\r\n"\
-#         "\r\n"\
-#         "不明点は気軽に連絡ください\r\n"
-#embed_t = discord.Embed(title="ようこそ せとうぽへ",description="",color=0x4169E1)
-#embed_t.add_field(name=f":sparkles:{strtest}さん:sparkles:\r\nご参加ありがとうございます",value=strtmp,inline=False)
-#embed_t.set_thumbnail(url="https://img.altema.jp/altema/uploads/2019/03/2019y03m07d_1405336875.png")
+strtest = "どい丸"
+strtmp = "以下で自己紹介をお願いします\r\n"\
+         " <#771510773549629480> \r\n"\
+         "\r\n"\
+         ":large_blue_diamond: 基本ルール :large_blue_diamond: \r\n"\
+         "以下リンクをご確認ください\r\n"\
+         "https://discord.com/channels/578209286639976448/581850951682359296/773011836970205204\r\n"\
+         "\r\n"\
+         ":large_blue_diamond: せとうぽくんについて :large_blue_diamond: \r\n"\
+         "以下コマンドでご確認ください\r\n/せとうぽ\r\n"\
+         "\r\n"\
+         "不明点は気軽に連絡ください\r\n"
+embed_t = discord.Embed(title="ようこそ せとうぽへ",description="",color=0x4169E1)
+embed_t.add_field(name=f":sparkles:{strtest}さん:sparkles:\r\nご参加ありがとうございます",value=strtmp,inline=False)
+embed_t.set_thumbnail(url="https://img.altema.jp/altema/uploads/2019/03/2019y03m07d_1405336875.png")
 
 #config_ini = configparser.ConfigParser()
 #config_ini_path = 'hoge.ini'
@@ -192,9 +192,9 @@ async def on_message(message):
             await message.channel.send('あなたは占えませんでした')
         return
     
-#    if message.content == '/せとうぽ テスト':
-#        await message.channel.send(embed=embed_t)
-#        return
+    if message.content == '/せとうぽ テスト':
+        await message.channel.send(embed=embed_t)
+        return
     
 #        var1 = config_ini['DEFAULT']['User']
 #        await message.channel.send(var1)
