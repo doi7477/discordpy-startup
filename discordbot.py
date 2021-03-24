@@ -104,7 +104,7 @@ async def on_ready():
 @client.event
 async def on_member_join(member):
          channel3 = client.get_channel(ZATUDAN_CHANNEL_ID)
-         if channel is None:
+         if channel3 is None:
                   pass
          else: 
                   #ようこそ文
