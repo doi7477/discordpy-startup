@@ -9,7 +9,7 @@ import traceback
 
 token = os.environ['DISCORD_BOT_TOKEN']
 client = discord.Client()
-presence = discord.Game('メイプルストーリーM')
+presence = discord.Game('モンスターハンターライズ')
 
 #せとうぽ-要塞攻略室
 YOUSAI_CHANNEL_ID = 713535093469347955
@@ -30,6 +30,19 @@ embed.add_field(name="**/せとうぽ ぜくの装備消去**",value="--> ぜく
 embed2 = discord.Embed(title="**管部用コマンドリスト一覧**",description="",color=0x4169E1)
 embed2.add_field(name="**/せとうぽ 要塞通知オン**",value="--> 21時の要塞通知をオンにします\r\n",inline=False)
 embed2.add_field(name="**/せとうぽ 要塞通知オフ**",value="--> 21時の要塞通知をオフにします\r\n",inline=False)
+
+#ようこそ文
+strtmp = "何かご不明な点があればChino、怪盗どんちゃ、リリナスまでいつでもご連絡ください\r\n"\
+         "また、# 自己紹介場 で自己紹介していただければ大変助かりますので、ご協力お願いします\r\n"\
+         "基本ルール\r\n"\
+         "・遠征は12時、20時に行きますので、ご一緒する際はギルドチャットへお声掛けください。\r\n"\
+         "・要塞は21時から模擬場に入ってバフを掛け合います。模擬場の人数が20人となった場合、他の方は連絡があるまで本戦は待機でお願いします。\r\n"\
+         "・バンケットは21時半からなので気軽にご参加ください。\r\n"\
+         "・カオスorハードヒルラは基本的には22時からなのでご連絡の上気軽にご参加ください。\r\n"\
+         "・カオスアビスは毎週木曜日22時から(ヒルラはその後)なのでご連絡の上気軽にご参加ください。\r\n"\
+
+embed3 = discord.Embed(title="**ようこそ せとうぽへ**",description="",color=0x4169E1)
+embed3.add_field(name="この度はせとうぽをお選びいただき、まことにありがとうございます。",value=strtmp,inline=False)
 
 #config_ini = configparser.ConfigParser()
 #config_ini_path = 'hoge.ini'
@@ -147,7 +160,10 @@ async def on_message(message):
             await message.channel.send('あなたは占えませんでした')
         return
     
-#    if message.content == '/せとうぽ テスト':
+    if message.content == '/せとうぽ テスト':
+        await message.channel.send(embed=embed)
+        return
+    
 #        var1 = config_ini['DEFAULT']['User']
 #        await message.channel.send(var1)
 #        return
