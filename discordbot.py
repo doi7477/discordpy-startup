@@ -42,10 +42,11 @@ strtmp = "まずは <#771510773549629480> で自己紹介のご協力をお願�
          ":large_blue_diamond: せとうぽくんについて :large_blue_diamond: \r\n"\
          "使い方は以下コマンドで一覧をご確認ください\r\n/せとうぽ\r\n"\
          "\r\n"\
-         "ご不明な点があればChino、怪盗どんちゃ、リリナスまでいつでもご連絡ください。\r\n"\
+         "ご不明な点があれば気軽にご連絡ください。\r\n"\
 
 embed3 = discord.Embed(title="**ようこそ せとうぽへ**",description="",color=0x4169E1)
 embed3.add_field(name="この度はせとうぽをお選びいただき、まことにありがとうございます。",value=strtmp,inline=False)
+embed3.set_thumbnail(url="https://img.altema.jp/altema/uploads/2019/03/2019y03m07d_1405336875.png")
 
 #config_ini = configparser.ConfigParser()
 #config_ini_path = 'hoge.ini'
