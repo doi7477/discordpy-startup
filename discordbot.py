@@ -37,7 +37,7 @@ embed2.add_field(name="**/せとうぽ 要塞通知オフ**",value="--> 21時の
 #テストようこそ文
 strtest = "どい丸"
 strtmp = "以下で自己紹介をお願いします\r\n"\
-         " <#771510773549629480> \r\n"
+         " <#771510773549629480> \r\n"\
          "\r\n"\
          ":large_blue_diamond: 基本ルール :large_blue_diamond: \r\n"\
          "以下リンクをご確認ください\r\n"\
@@ -101,7 +101,7 @@ async def on_ready():
         await channel2.send('せとうぽくん起動しました')
 
 ##################### 新規参加者の処理 #####################
-@client.event
+#@client.event
 #async def on_member_join(member):
 #         channel3 = client.get_channel(ZATUDAN_CHANNEL_ID)
 #         if channel3 is None:
@@ -109,7 +109,7 @@ async def on_ready():
 #         else: 
 #                  #ようこそ文
 #                  strtmp = "以下で自己紹介をお願いします\r\n"\
-#                           " <#771510773549629480> \r\n"
+#                           " <#771510773549629480> \r\n"\
 #                           "\r\n"\
 #                           ":large_blue_diamond: 基本ルール :large_blue_diamond: \r\n"\
 #                           "以下リンクをご確認ください\r\n"\
