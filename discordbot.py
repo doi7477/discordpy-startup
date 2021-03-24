@@ -5,6 +5,7 @@ from datetime import datetime, timedelta, timezone
 import os
 import random
 import traceback
+import configparser
 
 token = os.environ['DISCORD_BOT_TOKEN']
 client = discord.Client()
@@ -30,7 +31,10 @@ embed2 = discord.Embed(title="**管部用コマンドリスト一覧**",descript
 embed2.add_field(name="**/せとうぽ 要塞通知オン**",value="--> 21時の要塞通知をオンにします\r\n",inline=False)
 embed2.add_field(name="**/せとうぽ 要塞通知オフ**",value="--> 21時の要塞通知をオフにします\r\n",inline=False)
 
-
+config_ini = configparser.ConfigParser()
+config_ini_path = 'hoge.ini'
+if os.path.exists(config_ini_path):
+    config_ini.read(config_ini_path, encoding='utf-8')
 
 ##################### 要塞通知処理 #####################
 @tasks.loop(seconds=60)
@@ -141,6 +145,11 @@ async def on_message(message):
             await message.channel.send('大凶 です')
         else:
             await message.channel.send('あなたは占えませんでした')
+        return
+    
+    if message.content == '/せとうぽ テスト':
+        var1 = config_ini['DEFAULT']['User']
+        await message.channel.send(var1)
         return
     
 #ループ処理実行
