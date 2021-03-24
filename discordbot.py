@@ -8,9 +8,12 @@ import traceback
 #import configparser
 
 token = os.environ['DISCORD_BOT_TOKEN']
-client = discord.Client()
+intents=discord.Intents.all()
+client = discord.Client(intents=intents)
 presence = discord.Game('モンスターハンターライズ')
 
+#せとうぽ-雑談
+ZATUDAN_CHANNEL_ID = 578209286639976452
 #せとうぽ-要塞攻略室
 YOUSAI_CHANNEL_ID = 713535093469347955
 #せとうぽ-幹部用
@@ -31,7 +34,8 @@ embed2 = discord.Embed(title="**管部用コマンドリスト一覧**",descript
 embed2.add_field(name="**/せとうぽ 要塞通知オン**",value="--> 21時の要塞通知をオンにします\r\n",inline=False)
 embed2.add_field(name="**/せとうぽ 要塞通知オフ**",value="--> 21時の要塞通知をオフにします\r\n",inline=False)
 
-#ようこそ文
+#テストようこそ文
+strtest = "どい丸"
 strtmp = "以下で自己紹介をお願いします\r\n"\
          " <#771510773549629480> \r\n"
          "\r\n"\
@@ -43,9 +47,9 @@ strtmp = "以下で自己紹介をお願いします\r\n"\
          "以下コマンドでご確認ください\r\n/せとうぽ\r\n"\
          "\r\n"\
          "不明点は気軽に連絡ください\r\n"
-embed3 = discord.Embed(title="**ようこそ せとうぽへ**",description="",color=0x4169E1)
-embed3.add_field(name="ご参加ありがとうございます",value=strtmp,inline=False)
-embed3.set_thumbnail(url="https://img.altema.jp/altema/uploads/2019/03/2019y03m07d_1405336875.png")
+embed_t = discord.Embed(title="ようこそ せとうぽへ",description="",color=0x4169E1)
+embed_t.add_field(name=f":sparkles:{strtest}さん:sparkles:\r\nご参加ありがとうございます",value=strtmp,inline=False)
+embed_t.set_thumbnail(url="https://img.altema.jp/altema/uploads/2019/03/2019y03m07d_1405336875.png")
 
 #config_ini = configparser.ConfigParser()
 #config_ini_path = 'hoge.ini'
@@ -95,7 +99,31 @@ async def on_ready():
         pass
     else:          
         await channel2.send('せとうぽくん起動しました')
-    
+
+##################### 新規参加者の処理 #####################
+@client.event
+async def on_member_join(member):
+         channel3 = client.get_channel(ZATUDAN_CHANNEL_ID)
+         if channel is None:
+                  pass
+         else: 
+                  #ようこそ文
+                  strtmp = "以下で自己紹介をお願いします\r\n"\
+                           " <#771510773549629480> \r\n"
+                           "\r\n"\
+                           ":large_blue_diamond: 基本ルール :large_blue_diamond: \r\n"\
+                           "以下リンクをご確認ください\r\n"\
+                           "https://discord.com/channels/578209286639976448/581850951682359296/773011836970205204\r\n"\
+                           "\r\n"\
+                           ":large_blue_diamond: せとうぽくんについて :large_blue_diamond: \r\n"\
+                           "以下コマンドでご確認ください\r\n/せとうぽ\r\n"\
+                           "\r\n"\
+                           "不明点は気軽に連絡ください\r\n"
+                  embed3 = discord.Embed(title="ようこそ せとうぽへ",description="",color=0x4169E1)
+                  embed3.add_field(name=f"{member.author.name}さん!!!\r\nご参加ありがとうございます",value=strtmp,inline=False)
+                  embed3.set_thumbnail(url="https://img.altema.jp/altema/uploads/2019/03/2019y03m07d_1405336875.png")
+                  await channel3.send(embed=embed3)
+         
 ##################### メッセージ受信時の処理 #####################
 @client.event
 async def on_message(message):
@@ -164,7 +192,7 @@ async def on_message(message):
         return
     
     if message.content == '/せとうぽ テスト':
-        await message.channel.send(embed=embed3)
+        await message.channel.send(embed=embed_t)
         return
     
 #        var1 = config_ini['DEFAULT']['User']
