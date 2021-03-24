@@ -32,20 +32,19 @@ embed2.add_field(name="**/せとうぽ 要塞通知オン**",value="--> 21時の
 embed2.add_field(name="**/せとうぽ 要塞通知オフ**",value="--> 21時の要塞通知をオフにします\r\n",inline=False)
 
 #ようこそ文
-
-strtmp = "まずは <#771510773549629480> で自己紹介のご協力をお願いします。\r\n"\
+strtmp = "以下で自己紹介をお願いします\r\n"\
+         " <#771510773549629480> \r\n"
          "\r\n"\
          ":large_blue_diamond: 基本ルール :large_blue_diamond: \r\n"\
-         "以下のリンクをご確認ください。\r\n"\
+         "以下リンクをご確認ください\r\n"\
          "https://discord.com/channels/578209286639976448/581850951682359296/773011836970205204\r\n"\
          "\r\n"\
          ":large_blue_diamond: せとうぽくんについて :large_blue_diamond: \r\n"\
-         "使い方は以下コマンドで一覧をご確認ください\r\n/せとうぽ\r\n"\
+         "以下コマンドでご確認ください\r\n/せとうぽ\r\n"\
          "\r\n"\
-         "ご不明な点があれば気軽にご連絡ください。\r\n"\
-
+         "不明点は気軽に連絡ください\r\n"
 embed3 = discord.Embed(title="**ようこそ せとうぽへ**",description="",color=0x4169E1)
-embed3.add_field(name="この度はせとうぽをお選びいただき、まことにありがとうございます。",value=strtmp,inline=False)
+embed3.add_field(name="ご参加ありがとうございます",value=strtmp,inline=False)
 embed3.set_thumbnail(url="https://img.altema.jp/altema/uploads/2019/03/2019y03m07d_1405336875.png")
 
 #config_ini = configparser.ConfigParser()
