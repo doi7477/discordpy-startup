@@ -112,7 +112,12 @@ async def on_member_join(member):
          print('誰かが参加しました3')
          if channel3 is None:
                   pass
-         else: 
+         else:
+                  print(f'参加したサーバーIDはこちら-->[{member.guild.id}]')
+                  if member.guild.id != 751149121284603935:
+                           print('違うサーバーに入っているよ')
+                           return
+                  
                   print('誰かが参加しました4')
                   #ようこそ文
 #                  strtmp = "以下で自己紹介をお願いします\r\n"\
