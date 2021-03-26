@@ -110,8 +110,8 @@ async def on_ready():
     if channel_ready is None:
         pass
     else:          
-        #await channel_ready.send('せとうぽくん起動しました')
-        pass
+        await channel_ready.send('せとうぽくん起動しました')
+        #pass
 
 ##################### 新規参加者の処理 #####################
 @client.event
