@@ -123,12 +123,12 @@ async def on_member_join(member):
         global intcol
 
         # 通知用チャンネル取得
-        channel_join = client.get_channel(DEBUG_CHANNEL_ID)
+        channel_join = client.get_channel(ZATUDAN_CHANNEL_ID)
         if channel_join is None:
             pass
         else:
             print(f'参加したサーバーID-->[{member.guild.id}]')
-            if member.guild.id != DEBUG_SERVER_ID:
+            if member.guild.id != SERVER_ID:
                 print('別サーバーに入っているのでスキップ')
                 return
                   
