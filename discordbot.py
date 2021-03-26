@@ -9,16 +9,11 @@ import traceback
 
 token = os.environ['DISCORD_BOT_TOKEN']
 
-#Intents = discord.Intents.default()
-#Intents.members = True
-#client = discord.Client(intents=Intents)
-
 intents = discord.Intents.all()
 client = discord.Client(intents=intents)
-
 #client = discord.Client()
+presence = discord.Game('モンスターハンターライズ')
 
-#presence = discord.Game('モンスターハンターライズ')
 #せとうぽ-雑談
 ZATUDAN_CHANNEL_ID = 578209286639976452
 #せとうぽ-要塞攻略室
@@ -61,11 +56,6 @@ strtmp = "以下で自己紹介をお願いします\r\n"\
 embed_t = discord.Embed(title="ようこそ せとうぽへ",description="",color=0x4169E1)
 embed_t.add_field(name=f":sparkles:{strtest}さん:sparkles:\r\nご参加ありがとうございます",value=strtmp,inline=False)
 embed_t.set_thumbnail(url="https://img.altema.jp/altema/uploads/2019/03/2019y03m07d_1405336875.png")
-
-#config_ini = configparser.ConfigParser()
-#config_ini_path = 'hoge.ini'
-#if os.path.exists(config_ini_path):
-#    config_ini.read(config_ini_path, encoding='utf-8')
 
 ##################### 要塞通知処理 #####################
 @tasks.loop(seconds=60)
@@ -113,12 +103,13 @@ async def on_ready():
 
 ##################### 新規参加者の処理 #####################
 #@client.event
-#async def on_member_join(member):
-#         channel3 = client.get_channel(ZATUDAN_CHANNEL_ID)
-#         if channel3 is None:
-#                  pass
-#         else: 
-#                  #ようこそ文
+async def on_member_join(member):
+         global strtmp
+         channel3 = client.get_channel(DEBUG_CHANNEL_ID)
+         if channel3 is None:
+                  pass
+         else: 
+                  #ようこそ文
 #                  strtmp = "以下で自己紹介をお願いします\r\n"\
 #                           " <#771510773549629480> \r\n"\
 #                           "\r\n"\
@@ -130,10 +121,10 @@ async def on_ready():
 #                           "以下コマンドでご確認ください\r\n/せとうぽ\r\n"\
 #                           "\r\n"\
 #                           "不明点は気軽に連絡ください\r\n"
-#                  embed3 = discord.Embed(title="ようこそ せとうぽへ",description="",color=0x4169E1)
-#                  embed3.add_field(name=f"{member.author.name}さん!!!\r\nご参加ありがとうございます",value=strtmp,inline=False)
-#                  embed3.set_thumbnail(url="https://img.altema.jp/altema/uploads/2019/03/2019y03m07d_1405336875.png")
-#                  await channel3.send(embed=embed3)
+                  embed3 = discord.Embed(title="ようこそ せとうぽへ",description="",color=0x4169E1)
+                  embed3.add_field(name=f":sparkles:{member.author.name}さん:sparkles:\r\nご参加ありがとうございます",value=strtmp,inline=False)
+                  embed3.set_thumbnail(url="https://img.altema.jp/altema/uploads/2019/03/2019y03m07d_1405336875.png")
+                  await channel3.send(embed=embed3)
          
 ##################### メッセージ受信時の処理 #####################
 @client.event
