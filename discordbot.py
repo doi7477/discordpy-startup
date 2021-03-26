@@ -9,14 +9,14 @@ import traceback
 
 token = os.environ['DISCORD_BOT_TOKEN']
 
-Intents = discord.Intents.default()
-Intents.members = True
-client = discord.Client(intents=Intents)
+#Intents = discord.Intents.default()
+#Intents.members = True
+#client = discord.Client(intents=Intents)
 
 #intents = discord.Intents.all()
 #client = discord.Client(intents=intents)
 
-#client = discord.Client()
+client = discord.Client()
 
 #presence = discord.Game('モンスターハンターライズ')
 #せとうぽ-雑談
