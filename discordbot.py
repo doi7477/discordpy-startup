@@ -176,11 +176,6 @@ async def on_message(message):
                 g_yousai_notice_flg = 0
                 await message.channel.send('要塞通知をオフに設定しました')
             return
-        
-        # テストコマンド
-        if message.content == '/せとうぽ テスト':
-            await message.channel.send(embed=embed_test)
-            return
 
     ##################### 全チャンネル #####################
     if message.content == '/せとうぽ':
@@ -208,6 +203,11 @@ async def on_message(message):
             await message.channel.send('大凶 です')
         else:
             await message.channel.send('あなたは占えませんでした')
+        return
+
+    # テストコマンド
+    if message.content == '/せとうぽ テスト':
+        await message.channel.send(embed=embed_test)
         return
         
 #実行
