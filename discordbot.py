@@ -8,11 +8,17 @@ import traceback
 #import configparser
 
 token = os.environ['DISCORD_BOT_TOKEN']
+
+Intents = discord.Intents.default()
+Intents.members = True
+client = discord.Client(intents=Intents)
+
 #intents = discord.Intents.all()
 #client = discord.Client(intents=intents)
-client = discord.Client()
-presence = discord.Game('モンスターハンターライズ')
 
+#client = discord.Client()
+
+presence = discord.Game('モンスターハンターライズ')
 #せとうぽ-雑談
 ZATUDAN_CHANNEL_ID = 578209286639976452
 #せとうぽ-要塞攻略室
