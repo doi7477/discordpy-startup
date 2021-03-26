@@ -87,7 +87,7 @@ async def loop():
 async def on_ready():                
     # メッセージ受信時に動作する処理
     print('せとうぽくん起動しました')
-    #await client.change_presence(activity=presence)
+    await client.change_presence(activity=presence)
     channel = client.get_channel(KANBU_CHANNEL_ID)
     if channel is None:
         pass
@@ -103,7 +103,7 @@ async def on_ready():
         await channel2.send('せとうぽくん起動しました')
 
 ##################### 新規参加者の処理 #####################
-#@client.event
+@client.event
 async def on_member_join(member):
          print('誰かが参加しました1')
          global strtmp
