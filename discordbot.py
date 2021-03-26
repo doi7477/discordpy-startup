@@ -209,7 +209,7 @@ async def on_message(message):
 #        var1 = config_ini['DEFAULT']['User']
 #        await message.channel.send(var1)
 #        return
-    
+
 #ループ処理実行
 loop.start()
 client.run(token)
