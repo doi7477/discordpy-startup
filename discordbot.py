@@ -44,6 +44,10 @@ strtmp = "以下で自己紹介をお願いします\r\n"\
          "以下リンクをご確認ください\r\n"\
          "https://discord.com/channels/578209286639976448/581850951682359296/773011836970205204\r\n"\
          "\r\n"\
+         ":large_blue_diamond: 要塞の小学生作戦について :large_blue_diamond: \r\n"\
+         "以下リンクをご確認ください\r\n"\
+         "https://discord.com/channels/578209286639976448/713535093469347955/823523614795104277\r\n"\
+         "\r\n"\
          ":large_blue_diamond: せとうぽくんについて :large_blue_diamond: \r\n"\
          "以下コマンドでご確認ください\r\n/せとうぽ\r\n"\
          "\r\n"\
