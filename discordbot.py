@@ -128,7 +128,7 @@ async def on_member_join(member):
 #                           "不明点は気軽に連絡ください\r\n"
                   embed3 = discord.Embed(title="ようこそ せとうぽへ",description="",color=0x4169E1)
                   print('誰かが参加しました5')
-                  embed3.add_field(name=f":sparkles:{member.author.name}さん:sparkles:\r\nご参加ありがとうございます",value=strtmp,inline=False)
+                  embed3.add_field(name=f":sparkles:{member.name}さん:sparkles:\r\nご参加ありがとうございます",value=strtmp,inline=False)
                   print('誰かが参加しました6')
                   embed3.set_thumbnail(url="https://img.altema.jp/altema/uploads/2019/03/2019y03m07d_1405336875.png")
                   print('誰かが参加しました7')
