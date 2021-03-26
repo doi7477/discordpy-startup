@@ -116,7 +116,7 @@ async def on_ready():
 ##################### 新規参加者の処理 #####################
 @client.event
 async def on_member_join(member):
-         
+        print('新規メンバー参加処理')
         global strtmp
         global strpng
         global strtit
@@ -155,12 +155,14 @@ async def on_message(message):
     if message.channel.id == KANBU_CHANNEL_ID:
         # 管理部用ヘルプ
         if message.content == '/せとうぽ':
+            print('幹部用ヘルプ表示処理')
             await message.channel.send(embed=embed_help)
             await message.channel.send(embed=embed_kanbu_help)
             return
         
         # 要塞通知ON設定
         if message.content == '/せとうぽ 要塞通知オン':
+            print('要塞通知ON設定処理')
             if g_yousai_notice_flg == 1:
                 await message.channel.send('すでに要塞通知設定はオンです')
             else:
@@ -170,6 +172,7 @@ async def on_message(message):
 
         # 要塞通知OFF設定
         if message.content == '/せとうぽ 要塞通知オフ':
+            print('要塞通知OFF設定処理')
             if g_yousai_notice_flg == 0:
                 await message.channel.send('すでに要塞通知設定はオフです')
             else:
@@ -179,15 +182,18 @@ async def on_message(message):
 
     ##################### 全チャンネル #####################
     if message.content == '/せとうぽ':
+        print('ヘルプ表示処理')
         await message.channel.send(embed=embed_help)
         return
     
     if message.content == '/せとうぽ ぜくの装備消去':
+        print('せくの装備消去表示処理')
         await message.channel.send('Zexlia さんの 装備全て を消去しました')
         await message.channel.send('<:zeku:717319120642637904>\r\n<:hadaka:823868389285560320>')
         return
     
     if message.content == '/せとうぽ おみくじ':
+        print('おみくじ処理')
         rand_result = random.randint(1,100)
         if rand_result < 10:
             await message.channel.send('大吉 です')
@@ -207,6 +213,7 @@ async def on_message(message):
 
     # テストコマンド
     if message.content == '/せとうぽ テスト':
+        print('テストコマンド実行処理')
         await message.channel.send(embed=embed_test)
         return
         
