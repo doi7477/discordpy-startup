@@ -9,16 +9,16 @@ import traceback
 
 token = os.environ['DISCORD_BOT_TOKEN']
 
-#Intents = discord.Intents.default()
-#Intents.members = True
-#client = discord.Client(intents=Intents)
+Intents = discord.Intents.default()
+Intents.members = True
+client = discord.Client(intents=Intents)
 
 #intents = discord.Intents.all()
 #client = discord.Client(intents=intents)
 
-client = discord.Client()
+#client = discord.Client()
 
-presence = discord.Game('モンスターハンターライズ')
+#presence = discord.Game('モンスターハンターライズ')
 #せとうぽ-雑談
 ZATUDAN_CHANNEL_ID = 578209286639976452
 #せとうぽ-要塞攻略室
@@ -96,7 +96,7 @@ async def loop():
 async def on_ready():                
     # メッセージ受信時に動作する処理
     print('せとうぽくん起動しました。')
-    await client.change_presence(activity=presence)
+    #await client.change_presence(activity=presence)
     channel = client.get_channel(KANBU_CHANNEL_ID)
     if channel is None:
         pass
