@@ -85,7 +85,7 @@ async def loop():
 @client.event
 async def on_ready():                
     # メッセージ受信時に動作する処理
-    print('せとうぽくん起動しました。')
+    print('せとうぽくん起動しました')
     #await client.change_presence(activity=presence)
     channel = client.get_channel(KANBU_CHANNEL_ID)
     if channel is None:
@@ -104,11 +104,15 @@ async def on_ready():
 ##################### 新規参加者の処理 #####################
 #@client.event
 async def on_member_join(member):
+         print('誰かが参加しました1')
          global strtmp
+         print('誰かが参加しました2')
          channel3 = client.get_channel(DEBUG_CHANNEL_ID)
+         print('誰かが参加しました3')
          if channel3 is None:
                   pass
          else: 
+                  print('誰かが参加しました4')
                   #ようこそ文
 #                  strtmp = "以下で自己紹介をお願いします\r\n"\
 #                           " <#771510773549629480> \r\n"\
@@ -122,9 +126,13 @@ async def on_member_join(member):
 #                           "\r\n"\
 #                           "不明点は気軽に連絡ください\r\n"
                   embed3 = discord.Embed(title="ようこそ せとうぽへ",description="",color=0x4169E1)
+                  print('誰かが参加しました5')
                   embed3.add_field(name=f":sparkles:{member.author.name}さん:sparkles:\r\nご参加ありがとうございます",value=strtmp,inline=False)
+                  print('誰かが参加しました6')
                   embed3.set_thumbnail(url="https://img.altema.jp/altema/uploads/2019/03/2019y03m07d_1405336875.png")
+                  print('誰かが参加しました7')
                   await channel3.send(embed=embed3)
+                  print('誰かが参加しました8')
          
 ##################### メッセージ受信時の処理 #####################
 @client.event
