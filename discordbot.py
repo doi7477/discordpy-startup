@@ -58,7 +58,6 @@ strtmp = "以下で自己紹介をお願いします\r\n"\
          ":large_blue_diamond: 要塞の立ち回り方 :large_blue_diamond: \r\n"\
          "以下リンクをご確認ください\r\n"\
          "https://discord.com/channels/578209286639976448/713535093469347955/828243128635883531\r\n"\
-         "※オペレーションスクルド"\
          "\r\n"\
          ":large_blue_diamond: せとうぽくんについて :large_blue_diamond: \r\n"\
          "以下コマンドでご確認ください\r\n/せとうぽ\r\n"\
