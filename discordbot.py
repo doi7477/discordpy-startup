@@ -55,10 +55,17 @@ strtmp = "以下で自己紹介をお願いします\r\n"\
          "以下リンクをご確認ください\r\n"\
          "https://discord.com/channels/578209286639976448/713535093469347955/823523614795104277\r\n"\
          "\r\n"\
+         ":large_blue_diamond: 要塞の立ち回り方 :large_blue_diamond: \r\n"\
+         "以下リンクをご確認ください\r\n"\
+         "https://discord.com/channels/578209286639976448/713535093469347955/828243128635883531\r\n"\
+         "※オペレーションスクルド"\
+         "\r\n"\
          ":large_blue_diamond: せとうぽくんについて :large_blue_diamond: \r\n"\
          "以下コマンドでご確認ください\r\n/せとうぽ\r\n"\
          "\r\n"\
          "不明点は気軽に連絡ください\r\n"
+
+
 
 embed_test = discord.Embed(title=strtit,description="",color=intcol)
 embed_test.add_field(name=":sparkles:テストさん:sparkles:\r\nご参加ありがとうございます",value=strtmp,inline=False)
