@@ -10,7 +10,7 @@ from discord.ext import tasks
 token = os.environ['DISCORD_BOT_TOKEN']
 intents = discord.Intents.all()
 client = discord.Client(intents=intents)
-presence = discord.Game('モンスターハンターライズ')
+presence = discord.Game('Apex Legends')
 
 #せとうぽ サーバID
 SERVER_ID = 578209286639976448
