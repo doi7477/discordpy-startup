@@ -227,7 +227,7 @@ async def on_message(message):
             if ga_list[0] in ga_result:
                 print('GA(偉大突貫)コマンド実行処理ブレイク')
                 break
-        await message.channel.send("[偉大マグナス]11連を" + str(ga_cnt) + "回で当たりました\r\n" + str(ga_cnt * 11) +"連：" + str(ga_cnt * 900) + "クリスタル"
+        await message.channel.send("[偉大マグナス]11連を" + str(ga_cnt) + "回で当たりました\r\n" + str(ga_cnt * 11) +"連：" + str(ga_cnt * 900) + "クリスタル")
         return
 
     # ゴールドアップルコマンド
