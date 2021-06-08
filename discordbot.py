@@ -560,6 +560,19 @@ async def on_message(message):
             await message.channel.send('あなたは占えませんでした')
         return
 
+    # ゴールドアップルコマンド(偉大突貫)
+    if message.content == '/せとうぽ GA 偉大マグナス':
+        print('GA(偉大突貫)コマンド実行処理')
+        ga_cnt = 0
+        while True:
+            ga_cnt = ga_cnt + 1
+            ga_result = random.choices(ga_list, weights=ga_weight, k=11)
+            if ga_list[0] in ga_result:
+                print('GA(偉大突貫)コマンド実行処理ブレイク')
+                break
+        await message.channel.send("[偉大マグナス]11連を" + ga_cnt + "回で当たりました\r\n")
+        return
+
     # ゴールドアップルコマンド
     if message.content == '/せとうぽ GA':
         print('GAコマンド実行処理')
