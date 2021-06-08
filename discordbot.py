@@ -65,7 +65,7 @@ embed_test.add_field(name=":sparkles:テストさん:sparkles:\r\nご参加あ�
 embed_test.set_thumbnail(url=strpng)
 
 #ゴールドアップル関連
-ga_date = '2週目：2021年06月08日(火)10:00 ～ 06月15日(火)09:59'
+ga_date = '2週目：2021年06月08日(火) ～ 06月15日(火)
 ga_list = [':sparkles: 偉大なマグナス魂の玉交換券',
          ':sparkles: 偉大なブラッディクイーン魂の玉交換券',
          ':sparkles: 偉大なピエール魂の玉交換券',
@@ -563,12 +563,11 @@ async def on_message(message):
     if message.content == '/せとうぽ GA':
         print('GAコマンド実行処理')
         ga_result = random.choices(ga_list, weights=ga_weight, k=11)
-        await message.channel.send(ga_date)
         ga_str = ''
         for ga in ga_result:
-            ga_str = ga_str + ga + '\r\n'
+            ga_str = ga_str + '・' + ga + '\r\n'
 
-        await message.channel.send(ga_str)
+        await message.channel.send(ga_date + ga_str)
         return
 
     # テストコマンド
