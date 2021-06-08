@@ -10,7 +10,7 @@ from discord.ext import tasks
 token = os.environ['DISCORD_BOT_TOKEN']
 intents = discord.Intents.all()
 client = discord.Client(intents=intents)
-presence = discord.Game('Apex Legends')
+presence = discord.Game('메이플스토리M')
 
 #せとうぽ サーバID
 SERVER_ID = 578209286639976448
@@ -34,6 +34,7 @@ embed_help = discord.Embed(title="**コマンドリスト一覧**",description="
 embed_help.add_field(name="**/せとうぽ**",value="--> ヘルプを呼び出します",inline=False)
 embed_help.add_field(name="**/せとうぽ おみくじ**",value="--> おみくじを引きます",inline=False)
 embed_help.add_field(name="**/せとうぽ ぜくの装備消去**",value="--> ぜくしーをせくしーにします",inline=False)
+embed_help.add_field(name="**/せとうぽ GA**",value="--> ゴールドアップルシミュレータ",inline=False)
 
 #幹部用ヘルプ文
 embed_kanbu_help = discord.Embed(title="**管部用コマンドリスト一覧**",description="",color=0x4169E1)
