@@ -563,10 +563,12 @@ async def on_message(message):
     if message.content == '/せとうぽ GA':
         print('GAコマンド実行処理')
         ga_result = random.choices(ga_list, weights=ga_weight, k=11)
-
-        await message.channel.send(ga_date + '\r\n')
+        await message.channel.send(ga_date)
+        ga_str = ''
         for ga in ga_result:
-            await message.channel.send(ga)
+            ga_str = ga_str + ga + '\r\n'
+
+        await message.channel.send(ga_str)
         return
 
     # テストコマンド
