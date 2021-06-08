@@ -562,8 +562,8 @@ async def on_message(message):
     # ゴールドアップルコマンド
     if message.content == '/せとうぽ GA':
         print('GAコマンド実行処理')
-        #ga_result = random.choice(ga_list, w=ga_weight, k=11)
-        ga_result = random.choice(ga_list)
+        ga_result = random.choices(ga_list, w=ga_weight, k=11)
+        #ga_result = random.choice(ga_list)
         ga_result_str = ga_date+ '\r\n' + ga_result
         await message.channel.send(ga_result_str)
         return
