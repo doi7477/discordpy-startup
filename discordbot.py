@@ -567,7 +567,7 @@ async def on_message(message):
         for ga in ga_result:
             ga_str = ga_str + '・' + ga + '\r\n'
 
-        await message.channel.send(ga_date + ga_str)
+        await message.channel.send(ga_date + '\r\n\r\n'+ ga_str)
         return
 
     # テストコマンド
